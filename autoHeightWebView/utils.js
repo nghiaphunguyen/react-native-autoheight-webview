@@ -27,7 +27,7 @@ const updateSizeWithMessage = element =>
       setTimeout(updateSize, 200);
       return;
     }
-    height = ${element}.offsetHeight || document.documentElement.offsetHeight;
+    height = Math.max(document.documentElement.clientHeight, document.documentElement.scrollHeight, document.body.clientHeight, document.body.scrollHeight);
     width = ${element}.offsetWidth || document.documentElement.offsetWidth;
     window.ReactNativeWebView.postMessage(JSON.stringify({ width: width, height: height }));
 
